@@ -25,11 +25,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.comboBoxC2.addItem("Right")
         self.ui.comboBoxC2.addItem("Left")
-
+        #тут инициализируется графическая оболочка
+        #и происходит вызов функции загрузки, если фала нет, то выдаст исключение
+        #если файл существует или не испорчен, то проиходит парсинг xml файла
+        #при испорченности он тоже выдаст исключение и будет считаться, что файл пуст
         try:
             downloadXML.download(self.cyclist1, self.cyclist2)
         except Exception:
             print("Пустота")
+        #после загрузки происходит инициализация полей исходя из данных файла
         self.ui.c1_x.setValue(self.cyclist1.getCoordinate())
         self.ui.c1_v.setValue(self.cyclist1.getSpeed())
         self.ui.c2_x.setValue(self.cyclist2.getCoordinate())
@@ -49,6 +53,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.c2_x.setValue(self.cyclist2.getCoordinate())
 
     def closeEvent(self, event):
+        #здесь была переопределена функция закрытия интерфейса
         reply = QMessageBox.question(self, "Выход", "вы действительно хотите выйти?",
                 QMessageBox.Yes, QMessageBox.No)
         if reply == QMessageBox.Yes:

@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 
 def download(cyclist1 ,cyclist2):
+    #тут проиходит загрузка xml файла
     tree = ET.parse('cyclists.xml')
     root = tree.getroot()
     for cyclists in root.findall('cyclist'):
