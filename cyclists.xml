@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<cyclists>
+	<cyclist>
+		<id>1</id>
+		<coordinate>-1337.88</coordinate>
+		<speed>200.0</speed>
+	</cyclist>
+	<cyclist>
+		<id>2</id>
+		<coordinate>24.11</coordinate>
+		<speed>1.51</speed>
+	</cyclist>
+</cyclists>
